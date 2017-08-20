@@ -1,4 +1,7 @@
-package com.martinkysel.guitarlib;
+package com.martinkysel.guitarlib.instruments;
+
+import com.martinkysel.guitarlib.tunings.StandardTuning;
+import com.martinkysel.guitarlib.tunings.Tuning;
 
 /**
  GuitarLib
@@ -18,8 +21,7 @@ package com.martinkysel.guitarlib;
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  **/
 
-import static org.junit.Assert.*;
+public class Guitar {
 
-public class GuitarTest {
-
+    private Tuning tuning = new StandardTuning();
 }

@@ -1,4 +1,6 @@
-package com.martinkysel.guitarlib;
+package com.martinkysel.guitarlib.tunings;
+
+import com.martinkysel.guitarlib.basics.Note;
 
 /**
  GuitarLib

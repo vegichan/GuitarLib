@@ -1,4 +1,4 @@
-package com.martinkysel.guitarlib;
+package com.martinkysel.guitarlib.basics;
 
 /**
  GuitarLib

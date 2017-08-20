@@ -1,4 +1,4 @@
-package com.martinkysel.guitarlib;
+package com.martinkysel.guitarlib.scales;
 
 /**
  GuitarLib
@@ -18,8 +18,5 @@ package com.martinkysel.guitarlib;
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  **/
 
-import static org.junit.Assert.*;
-
-public class GuitarTest {
-
+public interface Scale {
 }

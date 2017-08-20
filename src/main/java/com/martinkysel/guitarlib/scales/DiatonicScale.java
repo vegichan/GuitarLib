@@ -1,4 +1,4 @@
-package com.martinkysel.guitarlib;
+package com.martinkysel.guitarlib.scales;
 
 /**
  GuitarLib
@@ -18,7 +18,15 @@ package com.martinkysel.guitarlib;
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  **/
 
-public class Guitar {
+import com.martinkysel.guitarlib.basics.Note;
 
-    private Tuning tuning = new StandardTuning();
+public interface DiatonicScale extends Scale {
+    Note note1();
+    Note note2();
+    Note note3();
+    Note note4();
+    Note note5();
+    Note note6();
+    Note note7();
+
 }
