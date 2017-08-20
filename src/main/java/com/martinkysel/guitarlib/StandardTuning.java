@@ -23,19 +23,19 @@ public class StandardTuning implements Tuning {
         return baseNote;
     }
     public Note getString2() {
-        return baseNote.substract(distances[1]);
+        return baseNote.subtract(distances[1]);
     }
     public Note getString3() {
-        return baseNote.substract(distances[2]);
+        return baseNote.subtract(distances[2]);
     }
     public Note getString4() {
-        return baseNote.substract(distances[3]);
+        return baseNote.subtract(distances[3]);
     }
     public Note getString5() {
-        return baseNote.substract(distances[4]);
+        return baseNote.subtract(distances[4]);
     }
     public Note getString6() {
-        return baseNote.substract(distances[5]);
+        return baseNote.subtract(distances[5]);
     }
 
     public StandardTuning(Note.NoteName baseNote) {

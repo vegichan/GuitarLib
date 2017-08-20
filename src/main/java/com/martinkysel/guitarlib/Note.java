@@ -37,14 +37,14 @@ public class Note {
     }
 
     public static int getDistance(Note a, Note b){
-        return a.noteName.value - a.noteName.value;
+        return (12 + b.noteName.value - a.noteName.value) % 12;
     }
 
     public Note add(int distance) {
         return new Note((noteName.value + distance ) % 12);
     }
 
-    public Note substract(int distance) {
+    public Note subtract(int distance) {
         return new Note((36 + noteName.value - distance ) % 12);
     }
 
