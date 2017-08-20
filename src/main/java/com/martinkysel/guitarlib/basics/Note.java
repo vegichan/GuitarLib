@@ -20,12 +20,7 @@ package com.martinkysel.guitarlib.basics;
 
 public class Note {
     public enum NoteName {
-        C(0), Db(1), D(2), Eb(3), E(4), F(5), Gb(6), G(7), Ab(8), A(9), Bb(10), B(11);
-        private final int value;
-
-        NoteName(int value) {
-            this.value = value;
-        }
+        C, Db, D, Eb, E, F, Gb, G, Ab, A, Bb, B;
 
     }
     public Note(NoteName name){
@@ -37,15 +32,15 @@ public class Note {
     }
 
     public static int getDistance(Note a, Note b){
-        return (12 + b.noteName.value - a.noteName.value) % 12;
+        return (12 + b.noteName.ordinal() - a.noteName.ordinal()) % 12;
     }
 
     public Note add(int distance) {
-        return new Note((noteName.value + distance ) % 12);
+        return new Note((noteName.ordinal() + distance ) % 12);
     }
 
     public Note subtract(int distance) {
-        return new Note((36 + noteName.value - distance ) % 12);
+        return new Note((36 + noteName.ordinal() - distance ) % 12);
     }
 
     public NoteName getNoteName() {
