@@ -1,4 +1,4 @@
-package com.martinkysel.guitarlib;
+package com.martinkysel.guitarlib.basics;
 
 /**
  GuitarLib
@@ -18,7 +18,6 @@ package com.martinkysel.guitarlib;
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  **/
 
-import com.martinkysel.guitarlib.basics.Note;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

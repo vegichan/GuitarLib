@@ -1,4 +1,4 @@
-package com.martinkysel.guitarlib;
+package com.martinkysel.guitarlib.scales;
 
 /**
  GuitarLib
@@ -19,8 +19,6 @@ package com.martinkysel.guitarlib;
  **/
 
 import com.martinkysel.guitarlib.basics.Note;
-import com.martinkysel.guitarlib.scales.DiatonicScale;
-import com.martinkysel.guitarlib.scales.MajorScale;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

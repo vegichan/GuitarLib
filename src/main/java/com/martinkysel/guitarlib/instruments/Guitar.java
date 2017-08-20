@@ -22,6 +22,39 @@ import com.martinkysel.guitarlib.tunings.Tuning;
  **/
 
 public class Guitar {
+    public enum StringNames {
+        HighE, B, G, D, A, LowE
+    }
 
-    private Tuning tuning = new StandardTuning();
+
+    public Guitar(){
+        this.tuning = new StandardTuning();
+        strings[0] = new String(tuning.getString1());
+        strings[1] = new String(tuning.getString2());
+        strings[2] = new String(tuning.getString3());
+        strings[3] = new String(tuning.getString4());
+        strings[4] = new String(tuning.getString5());
+        strings[5] = new String(tuning.getString6());
+    }
+
+    public Guitar(Tuning tuning){
+        this.tuning = tuning;
+        strings[0] = new String(tuning.getString1());
+        strings[1] = new String(tuning.getString2());
+        strings[2] = new String(tuning.getString3());
+        strings[3] = new String(tuning.getString4());
+        strings[4] = new String(tuning.getString5());
+        strings[5] = new String(tuning.getString6());
+    }
+
+    public String getStringByName(StringNames sn) {
+        return strings[sn.ordinal()];
+    }
+
+    public String getStringByPosition(int pos) {
+        return strings[pos];
+    }
+
+    private Tuning tuning;
+    private String[] strings = new String[6];
 }

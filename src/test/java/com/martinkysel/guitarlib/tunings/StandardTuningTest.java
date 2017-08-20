@@ -1,4 +1,4 @@
-package com.martinkysel.guitarlib;
+package com.martinkysel.guitarlib.tunings;
 
 /**
  GuitarLib
@@ -19,23 +19,34 @@ package com.martinkysel.guitarlib;
  **/
 
 import com.martinkysel.guitarlib.basics.Note;
-import com.martinkysel.guitarlib.tunings.DropTuning;
-import com.martinkysel.guitarlib.tunings.Tuning;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
-public class DropTuningTest {
+public class StandardTuningTest {
 
     @Test
-    public void testDropDTuning(){
-        Tuning t = new DropTuning();
+    public void testETuning(){
+        Tuning t = new StandardTuning();
 
         assertEquals(Note.NoteName.E, t.getString1().getNoteName());
         assertEquals(Note.NoteName.B, t.getString2().getNoteName());
         assertEquals(Note.NoteName.G, t.getString3().getNoteName());
         assertEquals(Note.NoteName.D, t.getString4().getNoteName());
         assertEquals(Note.NoteName.A, t.getString5().getNoteName());
-        assertEquals(Note.NoteName.D, t.getString6().getNoteName());
+        assertEquals(Note.NoteName.E, t.getString6().getNoteName());
     }
+
+    @Test
+    public void testBTuning(){
+        Tuning t = new StandardTuning(Note.NoteName.B);
+
+        assertEquals(Note.NoteName.B, t.getString1().getNoteName());
+        assertEquals(Note.NoteName.Gb, t.getString2().getNoteName());
+        assertEquals(Note.NoteName.D, t.getString3().getNoteName());
+        assertEquals(Note.NoteName.A, t.getString4().getNoteName());
+        assertEquals(Note.NoteName.E, t.getString5().getNoteName());
+        assertEquals(Note.NoteName.B, t.getString6().getNoteName());
+    }
+
 }
