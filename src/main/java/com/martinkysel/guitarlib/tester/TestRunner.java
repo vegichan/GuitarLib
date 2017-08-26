@@ -20,7 +20,6 @@ package com.martinkysel.guitarlib.tester;
 
 import com.martinkysel.guitarlib.basics.Note;
 import com.martinkysel.guitarlib.scales.ChromaticScale;
-import com.martinkysel.guitarlib.scales.MajorScale;
 import com.martinkysel.guitarlib.scales.Scale;
 import com.martinkysel.guitarlib.tunings.StandardTuning;
 import com.martinkysel.guitarlib.tunings.Tuning;
@@ -32,19 +31,28 @@ import java.util.List;
 import java.util.Random;
 
 public class TestRunner {
-    public static void main(String[] args) throws IOException {
+    private static class NamedQuestion {
+        public NamedQuestion(String n, Question q) {
+            this.name = n;
+            this.question = q;
+        }
 
-        // TODO use reflection to find all instances
-        Question[] questions = {
+        String name;
+        Question question;
+    }
+
+    public static void main(String[] args) throws IOException {
+        NamedQuestion[] questions = {
             getDistanceQuestion(),
-            getNotesOnFretboardQuestion()
+            getNotesOnFretboardQuestion(),
+            getStringBaseTonesQuestion()
         };
 
         {
             StringBuilder sb = new StringBuilder();
             sb.append("=== Pick your test ===\n");
             for (int i = 0; i < questions.length; i++) {
-                sb.append(String.format("%d: %s\n", i + 1, questions[i].getClass().getName()));
+                sb.append(String.format("%d: %s\n", i + 1, questions[i].name));
             }
 
             System.out.println(sb.toString());
@@ -54,24 +62,36 @@ public class TestRunner {
         String rawAnswer = reader.readLine();
         int index = Integer.valueOf(rawAnswer) - 1;
 
-        System.out.println(String.format("You picked: %s", questions[index].getClass().getName()));
+        System.out.println(String.format("You picked: %s", questions[index].name));
 
-        TestRunner t = new TestRunner(questions[index]);
+        TestRunner t = new TestRunner(questions[index].question);
         t.run();
     }
 
-    private static Question getDistanceQuestion() {
+    private static NamedQuestion getDistanceQuestion() {
         Note n = Note.getNote(Note.NoteName.C);
-        return new DistanceQuestion(n, 12);
+        return new NamedQuestion("Distance from C in semitones",
+                new DistanceQuestion(n, 12));
     }
 
-    private static Question getNotesOnFretboardQuestion() {
+    private static NamedQuestion getNotesOnFretboardQuestion() {
         Tuning tuning = new StandardTuning();
         Scale scale = new ChromaticScale();
         int lowFret = 0;
         int highFret = 12;
 
-        return new PositionOnStringQuestion(tuning, scale, lowFret, highFret);
+        return new NamedQuestion("All notes on fretboard",
+                new PositionOnStringQuestion(tuning, scale, lowFret, highFret));
+    }
+
+    private static NamedQuestion getStringBaseTonesQuestion() {
+        Tuning tuning = new StandardTuning();
+        Scale scale = new ChromaticScale();
+        int lowFret = 0;
+        int highFret = 0;
+
+        return new NamedQuestion("6-String guitar string names",
+                new PositionOnStringQuestion(tuning, scale, lowFret, highFret));
     }
 
     public TestRunner(Question q) {

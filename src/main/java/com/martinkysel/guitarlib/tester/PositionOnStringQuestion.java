@@ -49,7 +49,7 @@ public class PositionOnStringQuestion implements Question {
                 }
 
             } catch (IllegalArgumentException iae) {
-                return String.format("'%scale' is not a valid note name", rawAnswer);
+                return String.format("'%s' is not a valid note name", rawAnswer);
             }
         }
 
