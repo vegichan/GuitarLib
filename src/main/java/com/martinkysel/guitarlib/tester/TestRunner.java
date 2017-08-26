@@ -19,6 +19,7 @@ package com.martinkysel.guitarlib.tester;
  **/
 
 import com.martinkysel.guitarlib.basics.Note;
+import com.martinkysel.guitarlib.scales.ChromaticScale;
 import com.martinkysel.guitarlib.scales.MajorScale;
 import com.martinkysel.guitarlib.scales.Scale;
 import com.martinkysel.guitarlib.tunings.StandardTuning;
@@ -66,7 +67,7 @@ public class TestRunner {
 
     private static Question getNotesOnFretboardQuestion() {
         Tuning tuning = new StandardTuning();
-        Scale scale = new MajorScale(Note.NoteName.C);
+        Scale scale = new ChromaticScale();
         int lowFret = 0;
         int highFret = 12;
 
