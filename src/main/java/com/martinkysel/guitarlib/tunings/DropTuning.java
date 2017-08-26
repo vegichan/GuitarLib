@@ -20,35 +20,62 @@ import com.martinkysel.guitarlib.basics.Note;
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  **/
 
+
+
+
 public class DropTuning implements Tuning {
+    @Override
     public Note getString1() {
-        return baseNote;
+        return notesInTuning[0];
     }
+
+    @Override
     public Note getString2() {
-        return baseNote.subtract(distances[1]);
+        return notesInTuning[1];
     }
+
+    @Override
     public Note getString3() {
-        return baseNote.subtract(distances[2]);
+        return notesInTuning[2];
     }
+
+    @Override
     public Note getString4() {
-        return baseNote.subtract(distances[3]);
+        return notesInTuning[3];
     }
+
+    @Override
     public Note getString5() {
-        return baseNote.subtract(distances[4]);
+        return notesInTuning[4];
     }
+
+    @Override
     public Note getString6() {
-        return baseNote.subtract(distances[5]);
+        return notesInTuning[5];
     }
 
     public DropTuning(Note.NoteName baseNote) {
-        this.baseNote =  Note.getNote(baseNote);
+        this.baseNote = Note.getNote(baseNote);
+        fillNoteArray();
     }
 
     public DropTuning() {
         this.baseNote = Note.getNote(Note.NoteName.E);
+        fillNoteArray();
     }
 
+    private void fillNoteArray(){
+        notesInTuning = new Note[]{
+                baseNote.subtract(distances[0]),
+                baseNote.subtract(distances[1]),
+                baseNote.subtract(distances[2]),
+                baseNote.subtract(distances[3]),
+                baseNote.subtract(distances[4]),
+                baseNote.subtract(distances[5]),
+        };
+    }
 
     private Note baseNote;
     private final int[] distances = {0, 5, 9, 14, 19, 26};
+    private Note[] notesInTuning;
 }

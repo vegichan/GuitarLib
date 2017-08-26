@@ -20,67 +20,78 @@ package com.martinkysel.guitarlib.scales;
 
 import com.martinkysel.guitarlib.basics.Note;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
 public class NaturalMinorScale implements DiatonicScale {
+
     @Override
     public Note note1() {
-        return keyNote.add(distances[0]);
+        return notesInScale[0];
     }
 
     @Override
     public Note note2() {
-        return keyNote.add(distances[1]);
+        return notesInScale[1];
     }
 
     @Override
     public Note note3() {
-        return keyNote.add(distances[2]);
+        return notesInScale[2];
     }
 
     @Override
     public Note note4() {
-        return keyNote.add(distances[3]);
+        return notesInScale[3];
     }
 
     @Override
     public Note note5() {
-        return keyNote.add(distances[4]);
+        return notesInScale[4];
     }
 
     @Override
     public Note note6() {
-        return keyNote.add(distances[5]);
+        return notesInScale[5];
     }
 
     @Override
     public Note note7() {
-        return keyNote.add(distances[6]);
-    }
-
-    @Override
-    public Set<Note> getAllNotesInScale() {
-        Set<Note> list = new HashSet<>();
-        list.add(note1());
-        list.add(note2());
-        list.add(note3());
-        list.add(note4());
-        list.add(note5());
-        list.add(note6());
-        list.add(note7());
-
-        return list;
+        return notesInScale[6];
     }
 
     public NaturalMinorScale(){
         this.keyNote = Note.getNote(Note.NoteName.C);
+        fillNoteArray();
     }
 
     public NaturalMinorScale(Note.NoteName keyNote){
         this.keyNote = Note.getNote(keyNote);
+        fillNoteArray();
+    }
+
+
+    private void fillNoteArray(){
+        notesInScale = new Note[]{
+                keyNote.add(distances[0]),
+                keyNote.add(distances[1]),
+                keyNote.add(distances[2]),
+                keyNote.add(distances[3]),
+                keyNote.add(distances[4]),
+                keyNote.add(distances[5]),
+                keyNote.add(distances[6]),
+        };
     }
 
     Note keyNote;
     private final int[] distances = {0, 2, 3, 5, 7, 8, 10};
+    private Note[] notesInScale;
+
+    @Override
+    public Set<Note> getAllNotesInScale() {
+        Set<Note> list = new HashSet<>();
+        list.addAll(Arrays.asList(notesInScale));
+        return list;
+    }
 }
