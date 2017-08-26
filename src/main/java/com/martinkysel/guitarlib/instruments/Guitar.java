@@ -29,22 +29,23 @@ public class Guitar {
 
     public Guitar(){
         this.tuning = new StandardTuning();
-        strings[0] = new String(tuning.getString1());
-        strings[1] = new String(tuning.getString2());
-        strings[2] = new String(tuning.getString3());
-        strings[3] = new String(tuning.getString4());
-        strings[4] = new String(tuning.getString5());
-        strings[5] = new String(tuning.getString6());
+        fillStringArray();
     }
 
     public Guitar(Tuning tuning){
         this.tuning = tuning;
-        strings[0] = new String(tuning.getString1());
-        strings[1] = new String(tuning.getString2());
-        strings[2] = new String(tuning.getString3());
-        strings[3] = new String(tuning.getString4());
-        strings[4] = new String(tuning.getString5());
-        strings[5] = new String(tuning.getString6());
+        fillStringArray();
+    }
+
+    private void fillStringArray(){
+        strings = new String[] {
+                new String(tuning.getString1()),
+                new String(tuning.getString2()),
+                new String(tuning.getString3()),
+                new String(tuning.getString4()),
+                new String(tuning.getString5()),
+                new String(tuning.getString6())
+        };
     }
 
     public String getStringByName(StringNames sn) {
@@ -56,5 +57,5 @@ public class Guitar {
     }
 
     private Tuning tuning;
-    private String[] strings = new String[6];
+    private String[] strings;
 }
