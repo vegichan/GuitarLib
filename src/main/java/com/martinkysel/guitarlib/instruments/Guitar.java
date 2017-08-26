@@ -37,6 +37,10 @@ public class Guitar {
         fillStringArray();
     }
 
+    public int getNrStrings(){
+        return strings.length;
+    }
+
     private void fillStringArray(){
         strings = new InstrumentString[] {
                 new InstrumentString(tuning.getString1()),
