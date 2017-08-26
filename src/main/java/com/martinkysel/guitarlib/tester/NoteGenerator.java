@@ -20,13 +20,13 @@ package com.martinkysel.guitarlib.tester;
 
 import com.martinkysel.guitarlib.basics.Note;
 import com.martinkysel.guitarlib.instruments.Guitar;
+import com.martinkysel.guitarlib.instruments.InstrumentString;
 import com.martinkysel.guitarlib.scales.ChromaticScale;
 import com.martinkysel.guitarlib.scales.Scale;
 import com.martinkysel.guitarlib.tunings.StandardTuning;
 import com.martinkysel.guitarlib.tunings.Tuning;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
@@ -47,11 +47,9 @@ public class NoteGenerator {
 
     public GeneratedNote generateNextNote(){
         int stringPos = getRandomAllowedString();
-        //int fretPos = rand.nextInt(highFret - lowFret + 1) + lowFret;
-        com.martinkysel.guitarlib.instruments.String string = g.getStringByPosition(stringPos);
-        //Note note = string.getNoteAtPosition(fretPos);
+        InstrumentString instrumentString = g.getStringByPosition(stringPos);
 
-        Set<Note> stringNotes = getNotesInRange(string, lowFret, highFret);
+        Set<Note> stringNotes = instrumentString.getNotesInRange(lowFret, highFret);
         Set<Note> scaleNotes = s.getAllNotesInScale();
 
         stringNotes.retainAll(scaleNotes);
@@ -62,20 +60,9 @@ public class NoteGenerator {
         int rndPos = rand.nextInt(candidates.length);
         Note note = candidates[rndPos];
 
-        int fretPos = Note.getDistance(string.getNoteAtPosition(0), note);
+        int fretPos = Note.getDistance(instrumentString.getNoteAtPosition(0), note);
 
         return new GeneratedNote(note, stringPos, fretPos);
-    }
-
-    private Set<Note> getNotesInRange(com.martinkysel.guitarlib.instruments.String string, int low, int high) {
-        Set<Note> notes = new HashSet<>();
-
-        for (int i=low; i<= high; i++){
-            Note n = string.getNoteAtPosition(i);
-            notes.add(n);
-        }
-
-        return notes;
     }
 
     private int getRandomAllowedString() {

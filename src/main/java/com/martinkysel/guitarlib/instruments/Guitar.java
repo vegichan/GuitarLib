@@ -38,24 +38,24 @@ public class Guitar {
     }
 
     private void fillStringArray(){
-        strings = new String[] {
-                new String(tuning.getString1()),
-                new String(tuning.getString2()),
-                new String(tuning.getString3()),
-                new String(tuning.getString4()),
-                new String(tuning.getString5()),
-                new String(tuning.getString6())
+        strings = new InstrumentString[] {
+                new InstrumentString(tuning.getString1()),
+                new InstrumentString(tuning.getString2()),
+                new InstrumentString(tuning.getString3()),
+                new InstrumentString(tuning.getString4()),
+                new InstrumentString(tuning.getString5()),
+                new InstrumentString(tuning.getString6())
         };
     }
 
-    public String getStringByName(StringNames sn) {
+    public InstrumentString getStringByName(StringNames sn) {
         return strings[sn.ordinal()];
     }
 
-    public String getStringByPosition(int pos) {
+    public InstrumentString getStringByPosition(int pos) {
         return strings[pos];
     }
 
     private Tuning tuning;
-    private String[] strings;
+    private InstrumentString[] strings;
 }

@@ -36,7 +36,7 @@ public class CommandLineTester {
             try {
                 NoteGenerator.GeneratedNote note = ng.generateNextNote();
 
-                System.out.println(String.format("String nr %d, fret %d", note.stringPos+1, note.fretPos));
+                System.out.println(String.format("InstrumentString nr %d, fret %d", note.stringPos+1, note.fretPos));
                 long start = System.nanoTime();
                 String rawAnswer = reader.readLine();
                 long end = System.nanoTime();
