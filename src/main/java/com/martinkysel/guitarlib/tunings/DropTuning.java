@@ -41,11 +41,11 @@ public class DropTuning implements Tuning {
     }
 
     public DropTuning(Note.NoteName baseNote) {
-        this.baseNote = new Note(baseNote);
+        this.baseNote =  Note.getNote(baseNote);
     }
 
     public DropTuning() {
-        this.baseNote = new Note(Note.NoteName.E);
+        this.baseNote = Note.getNote(Note.NoteName.E);
     }
 
 

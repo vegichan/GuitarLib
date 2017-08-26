@@ -23,12 +23,20 @@ public class Note {
         C, Db, D, Eb, E, F, Gb, G, Ab, A, Bb, B;
 
     }
-    public Note(NoteName name){
+    private Note(NoteName name){
         noteName = name;
     }
 
-    public Note(int value){
+    private Note(int value){
         noteName = NoteName.values()[value];
+    }
+
+    public static Note getNote(NoteName name) {
+        return staticArray[name.ordinal()];
+    }
+
+    public static Note getNote(int value) {
+        return staticArray[value];
     }
 
     public static int getDistance(Note a, Note b){
@@ -36,11 +44,11 @@ public class Note {
     }
 
     public Note add(int distance) {
-        return new Note((noteName.ordinal() + distance ) % 12);
+        return staticArray[(noteName.ordinal() + distance ) % 12];
     }
 
     public Note subtract(int distance) {
-        return new Note((36 + noteName.ordinal() - distance ) % 12);
+        return staticArray[(36 + noteName.ordinal() - distance ) % 12];
     }
 
     public NoteName getNoteName() {
@@ -48,5 +56,18 @@ public class Note {
     }
 
     private NoteName noteName;
+    private static final Note[] staticArray = {new Note(NoteName.C),
+            new Note(NoteName.Db),
+            new Note(NoteName.D),
+            new Note(NoteName.Eb),
+            new Note(NoteName.E),
+            new Note(NoteName.F),
+            new Note(NoteName.Gb),
+            new Note(NoteName.G),
+            new Note(NoteName.Ab),
+            new Note(NoteName.A),
+            new Note(NoteName.Bb),
+            new Note(NoteName.B),
+    };
 }
 

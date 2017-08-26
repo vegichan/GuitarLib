@@ -57,11 +57,11 @@ public class MajorScale implements DiatonicScale {
     }
 
     public MajorScale(){
-        this.keyNote = new Note(Note.NoteName.C);
+        this.keyNote = Note.getNote(Note.NoteName.C);
     }
 
     public MajorScale(Note.NoteName keyNote){
-        this.keyNote = new Note(keyNote);
+        this.keyNote = Note.getNote(keyNote);
     }
 
     Note keyNote;

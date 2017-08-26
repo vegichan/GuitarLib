@@ -26,9 +26,9 @@ public class NoteTest {
 
     @Test
     public void testDistances(){
-        Note C1 = new Note(Note.NoteName.C);
-        Note C2 = new Note(Note.NoteName.C);
-        Note A = new Note(Note.NoteName.A);
+        Note C1 = Note.getNote(Note.NoteName.C);
+        Note C2 = Note.getNote(Note.NoteName.C);
+        Note A = Note.getNote(Note.NoteName.A);
 
         assertEquals(0, Note.getDistance(C1, C2));
 
@@ -38,7 +38,7 @@ public class NoteTest {
 
     @Test
     public void testAdd(){
-        Note C = new Note(Note.NoteName.C);
+        Note C = Note.getNote(Note.NoteName.C);
 
         assertEquals(Note.NoteName.C, C.add(0).getNoteName());
         assertEquals(Note.NoteName.E, C.add(4).getNoteName());
@@ -48,7 +48,7 @@ public class NoteTest {
 
     @Test
     public void testSubtract(){
-        Note C = new Note(Note.NoteName.C);
+        Note C = Note.getNote(Note.NoteName.C);
 
         assertEquals(Note.NoteName.C, C.subtract(0).getNoteName());
         assertEquals(Note.NoteName.B, C.subtract(1).getNoteName());

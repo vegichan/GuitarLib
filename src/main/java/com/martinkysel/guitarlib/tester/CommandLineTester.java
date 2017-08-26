@@ -45,7 +45,7 @@ public class CommandLineTester {
                 totalTime += elapsedTime;
 
                 try {
-                    Note answer = new Note(Note.NoteName.valueOf(rawAnswer));
+                    Note answer = Note.getNote(Note.NoteName.valueOf(rawAnswer));
 
                     if (note.note.getNoteName() == answer.getNoteName()) {
                         System.out.println(String.format("Correct! (%.2f s)", (double)elapsedTime / 1000000000.0));

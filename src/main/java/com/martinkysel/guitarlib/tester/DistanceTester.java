@@ -30,7 +30,7 @@ public class DistanceTester {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         Random rand = new Random();
 
-        Note n = new Note(Note.NoteName.A);
+        Note n = Note.getNote(Note.NoteName.A);
 
         int totalTests = 0;
         long totalTime = 0;
@@ -49,7 +49,7 @@ public class DistanceTester {
                 totalTime += elapsedTime;
 
                 try {
-                    Note answer = new Note(Note.NoteName.valueOf(rawAnswer));
+                    Note answer = Note.getNote(Note.NoteName.valueOf(rawAnswer));
 
                     if (nNote.getNoteName() == answer.getNoteName()) {
                         System.out.println(String.format("Correct! (%.2f s)", (double)elapsedTime / 1000000000.0));

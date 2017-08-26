@@ -57,11 +57,11 @@ public class NaturalMinorScale implements DiatonicScale {
     }
 
     public NaturalMinorScale(){
-        this.keyNote = new Note(Note.NoteName.C);
+        this.keyNote = Note.getNote(Note.NoteName.C);
     }
 
     public NaturalMinorScale(Note.NoteName keyNote){
-        this.keyNote = new Note(keyNote);
+        this.keyNote = Note.getNote(keyNote);
     }
 
     Note keyNote;

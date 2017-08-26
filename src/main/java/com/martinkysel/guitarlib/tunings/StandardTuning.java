@@ -41,11 +41,11 @@ public class StandardTuning implements Tuning {
     }
 
     public StandardTuning(Note.NoteName baseNote) {
-        this.baseNote = new Note(baseNote);
+        this.baseNote = Note.getNote(baseNote);
     }
 
     public StandardTuning() {
-        this.baseNote = new Note(Note.NoteName.E);
+        this.baseNote = Note.getNote(Note.NoteName.E);
     }
 
 

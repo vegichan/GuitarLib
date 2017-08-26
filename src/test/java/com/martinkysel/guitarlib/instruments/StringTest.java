@@ -9,7 +9,7 @@ public class StringTest {
 
     @Test
     public void EStringTest() {
-        String e = new String(new Note(Note.NoteName.E));
+        String e = new String(Note.getNote(Note.NoteName.E));
 
         assertEquals(Note.NoteName.E, e.getNoteAtPosition(0).getNoteName());
         assertEquals(Note.NoteName.Gb, e.getNoteAtPosition(2).getNoteName());
