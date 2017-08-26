@@ -1,5 +1,9 @@
 package com.martinkysel.guitarlib.scales;
 
+import com.martinkysel.guitarlib.basics.Note;
+
+import java.util.Set;
+
 /**
  GuitarLib
  Copyright (C) 2017 Martin Kysel
@@ -19,4 +23,6 @@ package com.martinkysel.guitarlib.scales;
  **/
 
 public interface Scale {
+    Set<Note> getAllNotesInScale();
+
 }

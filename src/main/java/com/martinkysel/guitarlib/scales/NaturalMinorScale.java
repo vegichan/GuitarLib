@@ -20,6 +20,9 @@ package com.martinkysel.guitarlib.scales;
 
 import com.martinkysel.guitarlib.basics.Note;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class NaturalMinorScale implements DiatonicScale {
     @Override
     public Note note1() {
@@ -54,6 +57,20 @@ public class NaturalMinorScale implements DiatonicScale {
     @Override
     public Note note7() {
         return keyNote.add(distances[6]);
+    }
+
+    @Override
+    public Set<Note> getAllNotesInScale() {
+        Set<Note> list = new HashSet<>();
+        list.add(note1());
+        list.add(note2());
+        list.add(note3());
+        list.add(note4());
+        list.add(note5());
+        list.add(note6());
+        list.add(note7());
+
+        return list;
     }
 
     public NaturalMinorScale(){

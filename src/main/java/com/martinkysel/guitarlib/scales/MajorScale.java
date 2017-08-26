@@ -20,6 +20,10 @@ package com.martinkysel.guitarlib.scales;
 
 import com.martinkysel.guitarlib.basics.Note;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 public class MajorScale implements DiatonicScale {
     @Override
     public Note note1() {
@@ -66,4 +70,18 @@ public class MajorScale implements DiatonicScale {
 
     Note keyNote;
     private final int[] distances = {0, 2, 4, 5, 7, 9, 11};
+
+    @Override
+    public Set<Note> getAllNotesInScale() {
+        Set<Note> list = new HashSet<>();
+        list.add(note1());
+        list.add(note2());
+        list.add(note3());
+        list.add(note4());
+        list.add(note5());
+        list.add(note6());
+        list.add(note7());
+
+        return list;
+    }
 }

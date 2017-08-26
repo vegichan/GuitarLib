@@ -20,6 +20,9 @@ package com.martinkysel.guitarlib.basics;
 
 import org.junit.Test;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import static org.junit.Assert.*;
 
 public class NoteTest {
@@ -55,4 +58,33 @@ public class NoteTest {
         assertEquals(Note.NoteName.A, C.subtract(3).getNoteName());
         assertEquals(Note.NoteName.G, C.subtract(5).getNoteName());
     }
+
+    @Test
+    public void testEquivalency() {
+        Note C1 = Note.getNote(Note.NoteName.C);
+        Note C2 = Note.getNote(Note.NoteName.C);
+        Note A = Note.getNote(Note.NoteName.A);
+
+        assertTrue(C1.equals(C2));
+        assertFalse(C1.equals(A));
+    }
+
+    @Test
+    public void testSets() {
+        Note C1 = Note.getNote(Note.NoteName.C);
+        Note C2 = Note.getNote(Note.NoteName.C);
+        Note A = Note.getNote(Note.NoteName.A);
+
+        Set<Note> s1 = new HashSet<>();
+        Set<Note> s2 = new HashSet<>();
+
+        s1.add(C1);
+
+        s2.add(C2);
+        s2.add(A);
+
+        s1.retainAll(s2);
+        assertEquals(1, s1.size());
+    }
+
 }
