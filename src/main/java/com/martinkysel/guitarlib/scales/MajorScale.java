@@ -85,7 +85,7 @@ public class MajorScale implements DiatonicScale {
     }
 
     Note keyNote;
-    private final int[] distances = {0, 2, 4, 5, 7, 9, 11};
+    private final int[] distances = {0, 2, 4, 5, 7, 9, 11}; // R, W, W, H, W, W, W, H
     private Note[] notesInScale;
 
     @Override

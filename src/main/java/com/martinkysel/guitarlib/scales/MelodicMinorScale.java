@@ -24,7 +24,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-public class NaturalMinorScale implements DiatonicScale {
+public class MelodicMinorScale implements DiatonicScale {
 
     @Override
     public Note note1() {
@@ -61,12 +61,12 @@ public class NaturalMinorScale implements DiatonicScale {
         return notesInScale[6];
     }
 
-    public NaturalMinorScale(){
+    public MelodicMinorScale(){
         this.keyNote = Note.getNote(Note.NoteName.C);
         fillNoteArray();
     }
 
-    public NaturalMinorScale(Note.NoteName keyNote){
+    public MelodicMinorScale(Note.NoteName keyNote){
         this.keyNote = Note.getNote(keyNote);
         fillNoteArray();
     }
@@ -85,7 +85,7 @@ public class NaturalMinorScale implements DiatonicScale {
     }
 
     Note keyNote;
-    private final int[] distances = {0, 2, 3, 5, 7, 8, 10}; // R, W, H, W, W, H, W, W
+    private final int[] distances = {0, 2, 3, 5, 7, 9, 11}; // R, W, H, W, W, W, W, H
     private Note[] notesInScale;
 
     @Override

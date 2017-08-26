@@ -26,7 +26,7 @@ import static org.junit.Assert.assertEquals;
 public class MinorScaleTest {
 
     @Test
-    public void AMinorTest(){
+    public void ANaturalMinorTest(){
         DiatonicScale AMajor = new NaturalMinorScale(Note.NoteName.A);
 
         assertEquals(Note.NoteName.A, AMajor.note1().getNoteName());
@@ -36,11 +36,10 @@ public class MinorScaleTest {
         assertEquals(Note.NoteName.E, AMajor.note5().getNoteName());
         assertEquals(Note.NoteName.F, AMajor.note6().getNoteName());
         assertEquals(Note.NoteName.G, AMajor.note7().getNoteName());
-
     }
 
     @Test
-    public void EMinorTest(){
+    public void ENaturalMinorTest(){
         DiatonicScale EMajor = new NaturalMinorScale(Note.NoteName.E);
 
         assertEquals(Note.NoteName.E, EMajor.note1().getNoteName());
@@ -50,6 +49,58 @@ public class MinorScaleTest {
         assertEquals(Note.NoteName.B, EMajor.note5().getNoteName());
         assertEquals(Note.NoteName.C, EMajor.note6().getNoteName());
         assertEquals(Note.NoteName.D, EMajor.note7().getNoteName());
+    }
 
+    @Test
+    public void AHarmonicMinorTest(){
+        DiatonicScale AMajor = new HarmonicMinorScale(Note.NoteName.A);
+
+        assertEquals(Note.NoteName.A, AMajor.note1().getNoteName());
+        assertEquals(Note.NoteName.B, AMajor.note2().getNoteName());
+        assertEquals(Note.NoteName.C, AMajor.note3().getNoteName());
+        assertEquals(Note.NoteName.D, AMajor.note4().getNoteName());
+        assertEquals(Note.NoteName.E, AMajor.note5().getNoteName());
+        assertEquals(Note.NoteName.F, AMajor.note6().getNoteName());
+        assertEquals(Note.NoteName.Ab, AMajor.note7().getNoteName());
+    }
+
+    @Test
+    public void EHarmonicMinorTest(){
+        DiatonicScale EMajor = new HarmonicMinorScale(Note.NoteName.E);
+
+        assertEquals(Note.NoteName.E, EMajor.note1().getNoteName());
+        assertEquals(Note.NoteName.Gb, EMajor.note2().getNoteName());
+        assertEquals(Note.NoteName.G, EMajor.note3().getNoteName());
+        assertEquals(Note.NoteName.A, EMajor.note4().getNoteName());
+        assertEquals(Note.NoteName.B, EMajor.note5().getNoteName());
+        assertEquals(Note.NoteName.C, EMajor.note6().getNoteName());
+        assertEquals(Note.NoteName.Eb, EMajor.note7().getNoteName());
+    }
+
+
+    @Test
+    public void AMelodicMinorTest(){
+        DiatonicScale AMajor = new MelodicMinorScale(Note.NoteName.A);
+
+        assertEquals(Note.NoteName.A, AMajor.note1().getNoteName());
+        assertEquals(Note.NoteName.B, AMajor.note2().getNoteName());
+        assertEquals(Note.NoteName.C, AMajor.note3().getNoteName());
+        assertEquals(Note.NoteName.D, AMajor.note4().getNoteName());
+        assertEquals(Note.NoteName.E, AMajor.note5().getNoteName());
+        assertEquals(Note.NoteName.Gb, AMajor.note6().getNoteName());
+        assertEquals(Note.NoteName.Ab, AMajor.note7().getNoteName());
+    }
+
+    @Test
+    public void EMelodicMinorTest(){
+        DiatonicScale EMajor = new MelodicMinorScale(Note.NoteName.E);
+
+        assertEquals(Note.NoteName.E, EMajor.note1().getNoteName());
+        assertEquals(Note.NoteName.Gb, EMajor.note2().getNoteName());
+        assertEquals(Note.NoteName.G, EMajor.note3().getNoteName());
+        assertEquals(Note.NoteName.A, EMajor.note4().getNoteName());
+        assertEquals(Note.NoteName.B, EMajor.note5().getNoteName());
+        assertEquals(Note.NoteName.Db, EMajor.note6().getNoteName());
+        assertEquals(Note.NoteName.Eb, EMajor.note7().getNoteName());
     }
 }
