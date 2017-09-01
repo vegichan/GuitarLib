@@ -31,6 +31,7 @@ public class ChordTest {
     public void testCMajorChord() {
         Chord chord = new MajorChord(Note.getNote(Note.NoteName.C));
         List<Note> notes = chord.getNotes();
+        assertEquals(3, notes.size());
         assertEquals(Note.getNote(Note.NoteName.C), notes.get(0));
         assertEquals(Note.getNote(Note.NoteName.E), notes.get(1));
         assertEquals(Note.getNote(Note.NoteName.G), notes.get(2));
@@ -40,6 +41,7 @@ public class ChordTest {
     public void testFMajorChord() {
         Chord chord = new MajorChord(Note.getNote(Note.NoteName.F));
         List<Note> notes = chord.getNotes();
+        assertEquals(3, notes.size());
         assertEquals(Note.getNote(Note.NoteName.F), notes.get(0));
         assertEquals(Note.getNote(Note.NoteName.A), notes.get(1));
         assertEquals(Note.getNote(Note.NoteName.C), notes.get(2));
@@ -49,6 +51,7 @@ public class ChordTest {
     public void testGMajorChord() {
         Chord chord = new MajorChord(Note.getNote(Note.NoteName.G));
         List<Note> notes = chord.getNotes();
+        assertEquals(3, notes.size());
         assertEquals(Note.getNote(Note.NoteName.G), notes.get(0));
         assertEquals(Note.getNote(Note.NoteName.B), notes.get(1));
         assertEquals(Note.getNote(Note.NoteName.D), notes.get(2));
@@ -58,6 +61,7 @@ public class ChordTest {
     public void testBbMajorChord() {
         Chord chord = new MajorChord(Note.getNote(Note.NoteName.Bb));
         List<Note> notes = chord.getNotes();
+        assertEquals(3, notes.size());
         assertEquals(Note.getNote(Note.NoteName.Bb), notes.get(0));
         assertEquals(Note.getNote(Note.NoteName.D), notes.get(1));
         assertEquals(Note.getNote(Note.NoteName.F), notes.get(2));
@@ -67,6 +71,7 @@ public class ChordTest {
     public void testCMinorChord() {
         Chord chord = new MinorChord(Note.getNote(Note.NoteName.C));
         List<Note> notes = chord.getNotes();
+        assertEquals(3, notes.size());
         assertEquals(Note.getNote(Note.NoteName.C), notes.get(0));
         assertEquals(Note.getNote(Note.NoteName.Eb), notes.get(1));
         assertEquals(Note.getNote(Note.NoteName.G), notes.get(2));
@@ -76,6 +81,7 @@ public class ChordTest {
     public void testFMinorChord() {
         Chord chord = new MinorChord(Note.getNote(Note.NoteName.F));
         List<Note> notes = chord.getNotes();
+        assertEquals(3, notes.size());
         assertEquals(Note.getNote(Note.NoteName.F), notes.get(0));
         assertEquals(Note.getNote(Note.NoteName.Ab), notes.get(1));
         assertEquals(Note.getNote(Note.NoteName.C), notes.get(2));
@@ -85,6 +91,7 @@ public class ChordTest {
     public void testGMinorChord() {
         Chord chord = new MinorChord(Note.getNote(Note.NoteName.G));
         List<Note> notes = chord.getNotes();
+        assertEquals(3, notes.size());
         assertEquals(Note.getNote(Note.NoteName.G), notes.get(0));
         assertEquals(Note.getNote(Note.NoteName.Bb), notes.get(1));
         assertEquals(Note.getNote(Note.NoteName.D), notes.get(2));
@@ -94,6 +101,7 @@ public class ChordTest {
     public void testBbMinorChord() {
         Chord chord = new MinorChord(Note.getNote(Note.NoteName.Bb));
         List<Note> notes = chord.getNotes();
+        assertEquals(3, notes.size());
         assertEquals(Note.getNote(Note.NoteName.Bb), notes.get(0));
         assertEquals(Note.getNote(Note.NoteName.Db), notes.get(1));
         assertEquals(Note.getNote(Note.NoteName.F), notes.get(2));
@@ -103,6 +111,7 @@ public class ChordTest {
     public void testCDiminishedChord() {
         Chord chord = new DiminishedChord(Note.getNote(Note.NoteName.C));
         List<Note> notes = chord.getNotes();
+        assertEquals(3, notes.size());
         assertEquals(Note.getNote(Note.NoteName.C), notes.get(0));
         assertEquals(Note.getNote(Note.NoteName.Eb), notes.get(1));
         assertEquals(Note.getNote(Note.NoteName.Gb), notes.get(2));
@@ -112,6 +121,7 @@ public class ChordTest {
     public void testFDiminishedChord() {
         Chord chord = new DiminishedChord(Note.getNote(Note.NoteName.F));
         List<Note> notes = chord.getNotes();
+        assertEquals(3, notes.size());
         assertEquals(Note.getNote(Note.NoteName.F), notes.get(0));
         assertEquals(Note.getNote(Note.NoteName.Ab), notes.get(1));
         assertEquals(Note.getNote(Note.NoteName.B), notes.get(2));
@@ -121,6 +131,7 @@ public class ChordTest {
     public void testGDiminishedChord() {
         Chord chord = new DiminishedChord(Note.getNote(Note.NoteName.G));
         List<Note> notes = chord.getNotes();
+        assertEquals(3, notes.size());
         assertEquals(Note.getNote(Note.NoteName.G), notes.get(0));
         assertEquals(Note.getNote(Note.NoteName.Bb), notes.get(1));
         assertEquals(Note.getNote(Note.NoteName.Db), notes.get(2));
@@ -130,6 +141,7 @@ public class ChordTest {
     public void testBbDiminishedChord() {
         Chord chord = new DiminishedChord(Note.getNote(Note.NoteName.Bb));
         List<Note> notes = chord.getNotes();
+        assertEquals(3, notes.size());
         assertEquals(Note.getNote(Note.NoteName.Bb), notes.get(0));
         assertEquals(Note.getNote(Note.NoteName.Db), notes.get(1));
         assertEquals(Note.getNote(Note.NoteName.E), notes.get(2));
@@ -139,6 +151,7 @@ public class ChordTest {
     public void testCAugmentedChord() {
         Chord chord = new AugmentedChord(Note.getNote(Note.NoteName.C));
         List<Note> notes = chord.getNotes();
+        assertEquals(3, notes.size());
         assertEquals(Note.getNote(Note.NoteName.C), notes.get(0));
         assertEquals(Note.getNote(Note.NoteName.E), notes.get(1));
         assertEquals(Note.getNote(Note.NoteName.Ab), notes.get(2));
@@ -148,6 +161,7 @@ public class ChordTest {
     public void testFAugmentedChord() {
         Chord chord = new AugmentedChord(Note.getNote(Note.NoteName.F));
         List<Note> notes = chord.getNotes();
+        assertEquals(3, notes.size());
         assertEquals(Note.getNote(Note.NoteName.F), notes.get(0));
         assertEquals(Note.getNote(Note.NoteName.A), notes.get(1));
         assertEquals(Note.getNote(Note.NoteName.Db), notes.get(2));
@@ -157,6 +171,7 @@ public class ChordTest {
     public void testGAugmentedChord() {
         Chord chord = new AugmentedChord(Note.getNote(Note.NoteName.G));
         List<Note> notes = chord.getNotes();
+        assertEquals(3, notes.size());
         assertEquals(Note.getNote(Note.NoteName.G), notes.get(0));
         assertEquals(Note.getNote(Note.NoteName.B), notes.get(1));
         assertEquals(Note.getNote(Note.NoteName.Eb), notes.get(2));
@@ -166,8 +181,97 @@ public class ChordTest {
     public void testBbAugmentedChord() {
         Chord chord = new AugmentedChord(Note.getNote(Note.NoteName.Bb));
         List<Note> notes = chord.getNotes();
+        assertEquals(3, notes.size());
         assertEquals(Note.getNote(Note.NoteName.Bb), notes.get(0));
         assertEquals(Note.getNote(Note.NoteName.D), notes.get(1));
         assertEquals(Note.getNote(Note.NoteName.Gb), notes.get(2));
+    }
+
+    @Test
+    public void testCMajor7Chord() {
+        Chord chord = new Major7Chord(Note.getNote(Note.NoteName.C));
+        List<Note> notes = chord.getNotes();
+        assertEquals(4, notes.size());
+        assertEquals(Note.getNote(Note.NoteName.C), notes.get(0));
+        assertEquals(Note.getNote(Note.NoteName.E), notes.get(1));
+        assertEquals(Note.getNote(Note.NoteName.G), notes.get(2));
+        assertEquals(Note.getNote(Note.NoteName.B), notes.get(3));
+    }
+
+    @Test
+    public void testFMajor7Chord() {
+        Chord chord = new Major7Chord(Note.getNote(Note.NoteName.F));
+        List<Note> notes = chord.getNotes();
+        assertEquals(4, notes.size());
+        assertEquals(Note.getNote(Note.NoteName.F), notes.get(0));
+        assertEquals(Note.getNote(Note.NoteName.A), notes.get(1));
+        assertEquals(Note.getNote(Note.NoteName.C), notes.get(2));
+        assertEquals(Note.getNote(Note.NoteName.E), notes.get(3));
+    }
+
+    @Test
+    public void testGMajor7Chord() {
+        Chord chord = new Major7Chord(Note.getNote(Note.NoteName.G));
+        List<Note> notes = chord.getNotes();
+        assertEquals(4, notes.size());
+        assertEquals(Note.getNote(Note.NoteName.G), notes.get(0));
+        assertEquals(Note.getNote(Note.NoteName.B), notes.get(1));
+        assertEquals(Note.getNote(Note.NoteName.D), notes.get(2));
+        assertEquals(Note.getNote(Note.NoteName.Gb), notes.get(3));
+    }
+
+    @Test
+    public void testBbMajor7Chord() {
+        Chord chord = new Major7Chord(Note.getNote(Note.NoteName.Bb));
+        List<Note> notes = chord.getNotes();
+        assertEquals(4, notes.size());
+        assertEquals(Note.getNote(Note.NoteName.Bb), notes.get(0));
+        assertEquals(Note.getNote(Note.NoteName.D), notes.get(1));
+        assertEquals(Note.getNote(Note.NoteName.F), notes.get(2));
+        assertEquals(Note.getNote(Note.NoteName.A), notes.get(3));
+    }
+
+    @Test
+    public void testCMinor7Chord() {
+        Chord chord = new Minor7Chord(Note.getNote(Note.NoteName.C));
+        List<Note> notes = chord.getNotes();
+        assertEquals(4, notes.size());
+        assertEquals(Note.getNote(Note.NoteName.C), notes.get(0));
+        assertEquals(Note.getNote(Note.NoteName.Eb), notes.get(1));
+        assertEquals(Note.getNote(Note.NoteName.G), notes.get(2));
+        assertEquals(Note.getNote(Note.NoteName.Bb), notes.get(3));
+    }
+
+    @Test
+    public void testFMinor7Chord() {
+        Chord chord = new Minor7Chord(Note.getNote(Note.NoteName.F));
+        List<Note> notes = chord.getNotes();
+        assertEquals(4, notes.size());
+        assertEquals(Note.getNote(Note.NoteName.F), notes.get(0));
+        assertEquals(Note.getNote(Note.NoteName.Ab), notes.get(1));
+        assertEquals(Note.getNote(Note.NoteName.C), notes.get(2));
+        assertEquals(Note.getNote(Note.NoteName.Eb), notes.get(3));
+    }
+
+    @Test
+    public void testGMinor7Chord() {
+        Chord chord = new Minor7Chord(Note.getNote(Note.NoteName.G));
+        List<Note> notes = chord.getNotes();
+        assertEquals(4, notes.size());
+        assertEquals(Note.getNote(Note.NoteName.G), notes.get(0));
+        assertEquals(Note.getNote(Note.NoteName.Bb), notes.get(1));
+        assertEquals(Note.getNote(Note.NoteName.D), notes.get(2));
+        assertEquals(Note.getNote(Note.NoteName.F), notes.get(3));
+    }
+
+    @Test
+    public void testBbMinor7Chord() {
+        Chord chord = new Minor7Chord(Note.getNote(Note.NoteName.Bb));
+        List<Note> notes = chord.getNotes();
+        assertEquals(4, notes.size());
+        assertEquals(Note.getNote(Note.NoteName.Bb), notes.get(0));
+        assertEquals(Note.getNote(Note.NoteName.Db), notes.get(1));
+        assertEquals(Note.getNote(Note.NoteName.F), notes.get(2));
+        assertEquals(Note.getNote(Note.NoteName.Ab), notes.get(3));
     }
 }
