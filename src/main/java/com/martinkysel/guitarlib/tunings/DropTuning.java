@@ -24,7 +24,7 @@ public class DropTuning implements Tuning {
     private Note baseNote;
     private final int[] distances = {0, 5, 9, 14, 19, 26};
     private Note[] notesInTuning;
-    
+
     public DropTuning(Note.NoteName baseNote) {
         this.baseNote = Note.getNote(baseNote);
         fillNoteArray();

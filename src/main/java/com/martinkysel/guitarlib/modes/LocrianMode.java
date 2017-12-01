@@ -28,19 +28,19 @@ import java.util.Set;
 public class LocrianMode implements Mode {
     private Note keyNote;
     private Note[] notesInScale;
-    private final int distanceFromBaseNote = 6;
+    private final int distanceFromBaseNote = 11;
 
-    LocrianMode(Note.NoteName keyNote){
+    LocrianMode(Note.NoteName keyNote) {
         this.keyNote = Note.getNote(keyNote);
-        MajorScale scale = new MajorScale(keyNote);
+        MajorScale scale = new MajorScale(this.keyNote.subtract(distanceFromBaseNote).getNoteName());
         this.notesInScale = new Note[]{
-                scale.note1().add(distanceFromBaseNote),
-                scale.note2().add(distanceFromBaseNote),
-                scale.note3().add(distanceFromBaseNote),
-                scale.note4().add(distanceFromBaseNote),
-                scale.note5().add(distanceFromBaseNote),
-                scale.note6().add(distanceFromBaseNote),
-                scale.note7().add(distanceFromBaseNote),
+                scale.note7(),
+                scale.note1(),
+                scale.note2(),
+                scale.note3(),
+                scale.note4(),
+                scale.note5(),
+                scale.note6(),
         };
     }
 
