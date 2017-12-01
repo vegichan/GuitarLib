@@ -1,8 +1,3 @@
-package com.martinkysel.guitarlib.instruments;
-
-import com.martinkysel.guitarlib.tunings.StandardTuning;
-import com.martinkysel.guitarlib.tunings.Tuning;
-
 /**
  GuitarLib
  Copyright (C) 2017 Martin Kysel
@@ -21,11 +16,18 @@ import com.martinkysel.guitarlib.tunings.Tuning;
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  **/
 
+package com.martinkysel.guitarlib.instruments;
+
+import com.martinkysel.guitarlib.tunings.StandardTuning;
+import com.martinkysel.guitarlib.tunings.Tuning;
+
 public class Guitar {
     public enum StringNames {
         HighE, B, G, D, A, LowE
     }
 
+    private Tuning tuning;
+    private InstrumentString[] strings;
 
     public Guitar(){
         this.tuning = new StandardTuning();
@@ -60,6 +62,4 @@ public class Guitar {
         return strings[pos];
     }
 
-    private Tuning tuning;
-    private InstrumentString[] strings;
 }

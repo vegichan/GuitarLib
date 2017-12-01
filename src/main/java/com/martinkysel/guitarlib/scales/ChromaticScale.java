@@ -1,10 +1,3 @@
-package com.martinkysel.guitarlib.scales;
-
-import com.martinkysel.guitarlib.basics.Note;
-
-import java.util.HashSet;
-import java.util.Set;
-
 /**
  * GuitarLib
  * Copyright (C) 2017 Martin Kysel
@@ -22,6 +15,13 @@ import java.util.Set;
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  **/
+
+package com.martinkysel.guitarlib.scales;
+
+import com.martinkysel.guitarlib.basics.Note;
+
+import java.util.HashSet;
+import java.util.Set;
 
 public class ChromaticScale implements Scale {
     @Override

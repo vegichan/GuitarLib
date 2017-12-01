@@ -1,7 +1,3 @@
-package com.martinkysel.guitarlib.tunings;
-
-import com.martinkysel.guitarlib.basics.Note;
-
 /**
  GuitarLib
  Copyright (C) 2017 Martin Kysel
@@ -20,10 +16,25 @@ import com.martinkysel.guitarlib.basics.Note;
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  **/
 
+package com.martinkysel.guitarlib.tunings;
 
-
+import com.martinkysel.guitarlib.basics.Note;
 
 public class DropTuning implements Tuning {
+    private Note baseNote;
+    private final int[] distances = {0, 5, 9, 14, 19, 26};
+    private Note[] notesInTuning;
+    
+    public DropTuning(Note.NoteName baseNote) {
+        this.baseNote = Note.getNote(baseNote);
+        fillNoteArray();
+    }
+
+    public DropTuning() {
+        this.baseNote = Note.getNote(Note.NoteName.E);
+        fillNoteArray();
+    }
+
     @Override
     public Note getString1() {
         return notesInTuning[0];
@@ -54,16 +65,6 @@ public class DropTuning implements Tuning {
         return notesInTuning[5];
     }
 
-    public DropTuning(Note.NoteName baseNote) {
-        this.baseNote = Note.getNote(baseNote);
-        fillNoteArray();
-    }
-
-    public DropTuning() {
-        this.baseNote = Note.getNote(Note.NoteName.E);
-        fillNoteArray();
-    }
-
     private void fillNoteArray(){
         notesInTuning = new Note[]{
                 baseNote.subtract(distances[0]),
@@ -74,8 +75,4 @@ public class DropTuning implements Tuning {
                 baseNote.subtract(distances[5]),
         };
     }
-
-    private Note baseNote;
-    private final int[] distances = {0, 5, 9, 14, 19, 26};
-    private Note[] notesInTuning;
 }

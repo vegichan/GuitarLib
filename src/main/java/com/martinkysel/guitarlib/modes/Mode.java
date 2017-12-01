@@ -16,15 +16,20 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  **/
 
-package com.martinkysel.guitarlib.tunings;
+package com.martinkysel.guitarlib.modes;
 
 import com.martinkysel.guitarlib.basics.Note;
 
-public interface Tuning {
-    Note getString1();
-    Note getString2();
-    Note getString3();
-    Note getString4();
-    Note getString5();
-    Note getString6();
+import java.util.Set;
+
+public interface Mode {
+    Note note1();
+    Note note2();
+    Note note3();
+    Note note4();
+    Note note5();
+    Note note6();
+    Note note7();
+
+    Set<Note> getAllNotesInScale();
 }

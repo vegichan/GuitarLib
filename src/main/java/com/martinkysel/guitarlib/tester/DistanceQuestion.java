@@ -1,10 +1,3 @@
-package com.martinkysel.guitarlib.tester;
-
-import com.martinkysel.guitarlib.basics.Note;
-
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * GuitarLib
  * Copyright (C) 2017 Martin Kysel
@@ -23,8 +16,25 @@ import java.util.List;
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  **/
 
+package com.martinkysel.guitarlib.tester;
+
+import com.martinkysel.guitarlib.basics.Note;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class DistanceQuestion implements Question {
     public class DistanceQuestionVariant extends QuestionVariant {
+        public Note startNote;
+        public Note note;
+        public int distance;
+
+        public DistanceQuestionVariant(Note s, Note n, int d) {
+            this.startNote = s;
+            this.note = n;
+            this.distance = d;
+        }
+
         @Override
         String getQuestion() {
             return String.format("%s + %d semitones is?", startNote.getNoteName(), distance);
@@ -45,16 +55,14 @@ public class DistanceQuestion implements Question {
                 return String.format("'%s' is not a valid note name", rawAnswer);
             }
         }
+    }
 
-        public DistanceQuestionVariant(Note s, Note n, int d) {
-            this.startNote = s;
-            this.note = n;
-            this.distance = d;
-        }
+    private Note startNote;
+    private int range;
 
-        public Note startNote;
-        public Note note;
-        public int distance;
+    public DistanceQuestion(Note n, int r) {
+        this.startNote = n;
+        this.range = r;
     }
 
     @Override
@@ -68,12 +76,4 @@ public class DistanceQuestion implements Question {
 
         return result;
     }
-
-    public DistanceQuestion(Note n, int r) {
-        this.startNote = n;
-        this.range = r;
-    }
-
-    private Note startNote;
-    private int range;
 }

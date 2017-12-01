@@ -1,7 +1,3 @@
-package com.martinkysel.guitarlib.tester;
-
-import java.util.List;
-
 /**
  * GuitarLib
  * Copyright (C) 2017 Martin Kysel
@@ -19,6 +15,10 @@ import java.util.List;
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  **/
+
+package com.martinkysel.guitarlib.tester;
+
+import java.util.List;
 
 public interface Question {
     abstract class QuestionVariant {

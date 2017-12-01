@@ -1,5 +1,3 @@
-package com.martinkysel.guitarlib.basics;
-
 /**
  GuitarLib
  Copyright (C) 2017 Martin Kysel
@@ -17,6 +15,8 @@ package com.martinkysel.guitarlib.basics;
  You should have received a copy of the GNU General Public License
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  **/
+
+package com.martinkysel.guitarlib.basics;
 
 public class Note {
     public enum NoteName {

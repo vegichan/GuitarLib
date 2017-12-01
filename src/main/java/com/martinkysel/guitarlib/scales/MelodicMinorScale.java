@@ -1,22 +1,22 @@
-package com.martinkysel.guitarlib.scales;
-
 /**
- GuitarLib
- Copyright (C) 2017 Martin Kysel
-
- This program is free software: you can redistribute it and/or modify
- it under the terms of the GNU General Public License as published by
- the Free Software Foundation, either version 3 of the License, or
- (at your option) any later version.
-
- This program is distributed in the hope that it will be useful,
- but WITHOUT ANY WARRANTY; without even the implied warranty of
- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- GNU General Public License for more details.
-
- You should have received a copy of the GNU General Public License
- along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * GuitarLib
+ * Copyright (C) 2017 Martin Kysel
+ * <p>
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * <p>
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * <p>
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  **/
+
+package com.martinkysel.guitarlib.scales;
 
 import com.martinkysel.guitarlib.basics.Note;
 
@@ -25,6 +25,19 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class MelodicMinorScale implements DiatonicScale {
+    private Note keyNote;
+    private final int[] distances = {0, 2, 3, 5, 7, 9, 11}; // R, W, H, W, W, W, W, H
+    private Note[] notesInScale;
+
+    public MelodicMinorScale(){
+        this.keyNote = Note.getNote(Note.NoteName.C);
+        fillNoteArray();
+    }
+
+    public MelodicMinorScale(Note.NoteName keyNote){
+        this.keyNote = Note.getNote(keyNote);
+        fillNoteArray();
+    }
 
     @Override
     public Note note1() {
@@ -61,16 +74,12 @@ public class MelodicMinorScale implements DiatonicScale {
         return notesInScale[6];
     }
 
-    public MelodicMinorScale(){
-        this.keyNote = Note.getNote(Note.NoteName.C);
-        fillNoteArray();
+    @Override
+    public Set<Note> getAllNotesInScale() {
+        Set<Note> list = new HashSet<>();
+        list.addAll(Arrays.asList(notesInScale));
+        return list;
     }
-
-    public MelodicMinorScale(Note.NoteName keyNote){
-        this.keyNote = Note.getNote(keyNote);
-        fillNoteArray();
-    }
-
 
     private void fillNoteArray(){
         notesInScale = new Note[]{
@@ -82,16 +91,5 @@ public class MelodicMinorScale implements DiatonicScale {
                 keyNote.add(distances[5]),
                 keyNote.add(distances[6]),
         };
-    }
-
-    Note keyNote;
-    private final int[] distances = {0, 2, 3, 5, 7, 9, 11}; // R, W, H, W, W, W, W, H
-    private Note[] notesInScale;
-
-    @Override
-    public Set<Note> getAllNotesInScale() {
-        Set<Note> list = new HashSet<>();
-        list.addAll(Arrays.asList(notesInScale));
-        return list;
     }
 }

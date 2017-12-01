@@ -1,22 +1,22 @@
-package com.martinkysel.guitarlib.tester;
-
 /**
- GuitarLib
- Copyright (C) 2017 Martin Kysel
-
- This program is free software: you can redistribute it and/or modify
- it under the terms of the GNU General Public License as published by
- the Free Software Foundation, either version 3 of the License, or
- (at your option) any later version.
-
- This program is distributed in the hope that it will be useful,
- but WITHOUT ANY WARRANTY; without even the implied warranty of
- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- GNU General Public License for more details.
-
- You should have received a copy of the GNU General Public License
- along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * GuitarLib
+ * Copyright (C) 2017 Martin Kysel
+ * <p>
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * <p>
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * <p>
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  **/
+
+package com.martinkysel.guitarlib.tester;
 
 import com.martinkysel.guitarlib.basics.Note;
 import com.martinkysel.guitarlib.scales.ChromaticScale;
@@ -40,6 +40,10 @@ public class TestRunner {
         String name;
         Question question;
     }
+
+    private Question question;
+    private BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    private Random rand = new Random();
 
     public static void main(String[] args) throws IOException {
         NamedQuestion[] questions = {
@@ -66,32 +70,6 @@ public class TestRunner {
 
         TestRunner t = new TestRunner(questions[index].question);
         t.run();
-    }
-
-    private static NamedQuestion getDistanceQuestion() {
-        Note n = Note.getNote(Note.NoteName.C);
-        return new NamedQuestion("Distance from C in semitones",
-                new DistanceQuestion(n, 12));
-    }
-
-    private static NamedQuestion getNotesOnFretboardQuestion() {
-        Tuning tuning = new StandardTuning();
-        Scale scale = new ChromaticScale();
-        int lowFret = 0;
-        int highFret = 12;
-
-        return new NamedQuestion("All notes on fretboard",
-                new PositionOnStringQuestion(tuning, scale, lowFret, highFret));
-    }
-
-    private static NamedQuestion getStringBaseTonesQuestion() {
-        Tuning tuning = new StandardTuning();
-        Scale scale = new ChromaticScale();
-        int lowFret = 0;
-        int highFret = 0;
-
-        return new NamedQuestion("6-String guitar string names",
-                new PositionOnStringQuestion(tuning, scale, lowFret, highFret));
     }
 
     public TestRunner(Question q) {
@@ -131,13 +109,34 @@ public class TestRunner {
         }
     }
 
+    private static NamedQuestion getDistanceQuestion() {
+        Note n = Note.getNote(Note.NoteName.C);
+        return new NamedQuestion("Distance from C in semitones",
+                new DistanceQuestion(n, 12));
+    }
+
+    private static NamedQuestion getNotesOnFretboardQuestion() {
+        Tuning tuning = new StandardTuning();
+        Scale scale = new ChromaticScale();
+        int lowFret = 0;
+        int highFret = 12;
+
+        return new NamedQuestion("All notes on fretboard",
+                new PositionOnStringQuestion(tuning, scale, lowFret, highFret));
+    }
+
+    private static NamedQuestion getStringBaseTonesQuestion() {
+        Tuning tuning = new StandardTuning();
+        Scale scale = new ChromaticScale();
+        int lowFret = 0;
+        int highFret = 0;
+
+        return new NamedQuestion("6-String guitar string names",
+                new PositionOnStringQuestion(tuning, scale, lowFret, highFret));
+    }
+
     private Question.QuestionVariant pickVariant(List<Question.QuestionVariant> variants) {
         int index = rand.nextInt(variants.size());
         return variants.get(index);
     }
-
-
-    Question question;
-    BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-    Random rand = new Random();
 }

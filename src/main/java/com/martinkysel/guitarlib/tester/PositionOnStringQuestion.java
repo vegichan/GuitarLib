@@ -1,17 +1,3 @@
-package com.martinkysel.guitarlib.tester;
-
-import com.martinkysel.guitarlib.basics.Note;
-import com.martinkysel.guitarlib.instruments.Guitar;
-import com.martinkysel.guitarlib.instruments.InstrumentString;
-import com.martinkysel.guitarlib.scales.ChromaticScale;
-import com.martinkysel.guitarlib.scales.Scale;
-import com.martinkysel.guitarlib.tunings.StandardTuning;
-import com.martinkysel.guitarlib.tunings.Tuning;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-
 /**
  * GuitarLib
  * Copyright (C) 2017 Martin Kysel
@@ -30,8 +16,33 @@ import java.util.Set;
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  **/
 
+package com.martinkysel.guitarlib.tester;
+
+import com.martinkysel.guitarlib.basics.Note;
+import com.martinkysel.guitarlib.instruments.Guitar;
+import com.martinkysel.guitarlib.instruments.InstrumentString;
+import com.martinkysel.guitarlib.scales.ChromaticScale;
+import com.martinkysel.guitarlib.scales.Scale;
+import com.martinkysel.guitarlib.tunings.StandardTuning;
+import com.martinkysel.guitarlib.tunings.Tuning;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
 public class PositionOnStringQuestion implements Question {
     public class PositionOnStringQuestionVariant extends QuestionVariant {
+        public InstrumentString string;
+        public int fret;
+        public int stringPos;
+        public Note note;
+
+        public PositionOnStringQuestionVariant(InstrumentString s, int sp, int fp, Note n) {
+            this.string = s;
+            this.stringPos = sp;
+            this.fret = fp;
+            this.note = n;
+        }
         @Override
         String getQuestion() {
             return String.format("Fret %d on the %d string?", fret, stringPos+1);
@@ -52,18 +63,24 @@ public class PositionOnStringQuestion implements Question {
                 return String.format("'%s' is not a valid note name", rawAnswer);
             }
         }
+    }
 
-        public PositionOnStringQuestionVariant(InstrumentString s, int sp, int fp, Note n) {
-            this.string = s;
-            this.stringPos = sp;
-            this.fret = fp;
-            this.note = n;
-        }
+    private Tuning tuning;
+    private Guitar guitar;
+    private Scale scale;
 
-        public InstrumentString string;
-        public int fret;
-        public int stringPos;
-        public Note note;
+    private int lowFret;
+    private int highFret;
+
+    private boolean[] useString = {true, true, true, true, true, true};
+
+    public PositionOnStringQuestion (Tuning t, Scale s, int lf, int hf) {
+        this.tuning = t;
+        this.guitar = new Guitar(tuning);
+        this.scale = s;
+        this.lowFret = lf;
+        this.highFret = hf;
+
     }
 
     @Override
@@ -95,23 +112,4 @@ public class PositionOnStringQuestion implements Question {
 
         return result;
     }
-
-    public PositionOnStringQuestion (Tuning t, Scale s, int lf, int hf) {
-        this.tuning = t;
-        this.guitar = new Guitar(tuning);
-        this.scale = s;
-        this.lowFret = lf;
-        this.highFret = hf;
-
-    }
-
-
-    private Tuning tuning;
-    private Guitar guitar;
-    private Scale scale;
-
-    private int lowFret;
-    private int highFret;
-
-    private boolean[] useString = {true, true, true, true, true, true};
 }
