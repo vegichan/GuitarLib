@@ -9,6 +9,26 @@ This project serves as a library to be later used for a similar Android app.
 
 Requires knowledge of Maven, to use effectively.
 
+A short example:
+
+    === Pick your test ===
+    1: Distance from C in semitones
+    2: All notes on fretboard
+    3: 6-String guitar string names
+    4: Mode names
+    5: Identify mode by pattern
+    
+    4
+    You picked: Mode names
+    
+    What is the 6th mode?
+    Aeolian
+    Correct! (6.54 s)
+    What is the 3th mode?
+    Phrygian
+    Correct! (6.17 s)
+
+
 ### Dependencies
 - Maven
 - Java 1.8
