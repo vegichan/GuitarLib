@@ -18,32 +18,40 @@
 
 package com.martinkysel.guitarlib.tester;
 
-import com.martinkysel.guitarlib.basics.Note;
 import com.martinkysel.guitarlib.modes.Modes;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ModeOrderQuestion implements Question {
-    public class ModeOrderQuestionVariant extends QuestionVariant {
-        public int modeNr;
+public class IdentifyModeQuestion implements Question {
+    public class IdentifyModeQuestionVariant extends QuestionVariant {
         public Modes.ModeName modeName;
+        public Modes.ModeName alternativeName;
+        public String pattern;
 
-        public ModeOrderQuestionVariant(int nr, Modes.ModeName n) {
+        public IdentifyModeQuestionVariant(Modes.ModeName n, String p) {
             this.modeName = n;
-            this.modeNr = nr;
+            this.pattern = p;
+
+            if (modeName == Modes.ModeName.Ionian) {
+                alternativeName = Modes.ModeName.Mixolydian;
+            }
+            if (modeName == Modes.ModeName.Mixolydian) {
+                alternativeName = Modes.ModeName.Ionian;
+            }
         }
 
         @Override
         String getQuestion() {
-            return String.format("What is the %dth mode?", modeNr+1);
+            return String.format("Identify the following pattern:\n\n%s\n", pattern);
         }
 
         @Override
         String validateAnswer(String rawAnswer) {
             try {
 
-                if (modeName.name().startsWith(rawAnswer)) {
+                if (modeName.name().startsWith(rawAnswer) ||
+                        (alternativeName != null && alternativeName.name().startsWith(rawAnswer))) {
                     return "Correct!";
                 } else {
                     return String.format("Wrong! The correct answer is %s", modeName);
@@ -56,16 +64,18 @@ public class ModeOrderQuestion implements Question {
         }
     }
 
-    public ModeOrderQuestion() {
+    public IdentifyModeQuestion() {
     }
 
     @Override
     public List<QuestionVariant> generateAllVariants() {
         Modes.ModeName modeNamesInOrder[] =  Modes.ModeName.values();
+
         List<QuestionVariant> result = new ArrayList<>();
 
         for(int idx = 0; idx < modeNamesInOrder.length; idx++) {
-            ModeOrderQuestionVariant variant = new ModeOrderQuestionVariant(idx, modeNamesInOrder[idx]);
+            IdentifyModeQuestionVariant variant =
+                    new IdentifyModeQuestionVariant(modeNamesInOrder[idx], Modes.patterns[idx]);
             result.add(variant);
         }
 

@@ -32,4 +32,6 @@ public interface Mode {
     Note note7();
 
     Set<Note> getAllNotesInScale();
+
+    Modes.ModeName getName();
 }

@@ -85,4 +85,9 @@ public class IonianMode implements Mode {
         list.addAll(Arrays.asList(notesInScale));
         return list;
     }
+
+    @Override
+    public Modes.ModeName getName() {
+        return Modes.ModeName.Ionian;
+    }
 }

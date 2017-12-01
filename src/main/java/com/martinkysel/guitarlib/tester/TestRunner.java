@@ -48,10 +48,11 @@ public class TestRunner {
 
     public static void main(String[] args) throws IOException {
         NamedQuestion[] questions = {
-            getDistanceQuestion(),
-            getNotesOnFretboardQuestion(),
-            getStringBaseTonesQuestion(),
-            getModeOrderQuestion()
+                getDistanceQuestion(),
+                getNotesOnFretboardQuestion(),
+                getStringBaseTonesQuestion(),
+                getModeOrderQuestion(),
+                getIdentifyModePatternQuestion()
         };
 
         {
@@ -140,6 +141,11 @@ public class TestRunner {
     private static NamedQuestion getModeOrderQuestion() {
         return new NamedQuestion("Mode names",
                 new ModeOrderQuestion());
+    }
+
+    private static NamedQuestion getIdentifyModePatternQuestion() {
+        return new NamedQuestion("Identify mode by pattern",
+                new IdentifyModeQuestion());
     }
 
     private Question.QuestionVariant pickVariant(List<Question.QuestionVariant> variants) {

@@ -85,4 +85,10 @@ public class LydianMode implements Mode {
         list.addAll(Arrays.asList(notesInScale));
         return list;
     }
+
+    @Override
+    public Modes.ModeName getName() {
+        return Modes.ModeName.Lydian;
+    }
+
 }
