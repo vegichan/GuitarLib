@@ -44,12 +44,14 @@ public class TestRunner {
     private Question question;
     private BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     private Random rand = new Random();
+    private int lastRandValue = -1;
 
     public static void main(String[] args) throws IOException {
         NamedQuestion[] questions = {
             getDistanceQuestion(),
             getNotesOnFretboardQuestion(),
-            getStringBaseTonesQuestion()
+            getStringBaseTonesQuestion(),
+            getModeOrderQuestion()
         };
 
         {
@@ -135,8 +137,20 @@ public class TestRunner {
                 new PositionOnStringQuestion(tuning, scale, lowFret, highFret));
     }
 
+    private static NamedQuestion getModeOrderQuestion() {
+        return new NamedQuestion("Mode names",
+                new ModeOrderQuestion());
+    }
+
     private Question.QuestionVariant pickVariant(List<Question.QuestionVariant> variants) {
-        int index = rand.nextInt(variants.size());
+
+        // always generate a new value
+        int index;
+        do {
+           index = rand.nextInt(variants.size());
+        } while (lastRandValue == index);
+        lastRandValue = index;
+
         return variants.get(index);
     }
 }

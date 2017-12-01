@@ -22,7 +22,9 @@ package com.martinkysel.guitarlib.modes;
 import com.martinkysel.guitarlib.basics.Note;
 import org.junit.Test;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class ModeTest {
 
@@ -41,7 +43,7 @@ public class ModeTest {
     }
 
     @Test
-    public void testmodeMode() {
+    public void testDorianMode() {
         Mode mode = new DorianMode(Note.NoteName.C);
 
         assertEquals(Note.NoteName.C, mode.note1().getNoteName());
@@ -122,5 +124,41 @@ public class ModeTest {
         assertEquals(Note.NoteName.Ab, mode.note6().getNoteName());
         assertEquals(Note.NoteName.Bb, mode.note7().getNoteName());
 
+    }
+
+    @Test
+    public void testGIonianMode() {
+        Mode mode = new IonianMode(Note.NoteName.G);
+
+        assertEquals(Note.NoteName.G, mode.note1().getNoteName());
+        assertEquals(Note.NoteName.A, mode.note2().getNoteName());
+        assertEquals(Note.NoteName.B, mode.note3().getNoteName());
+        assertEquals(Note.NoteName.C, mode.note4().getNoteName());
+        assertEquals(Note.NoteName.D, mode.note5().getNoteName());
+        assertEquals(Note.NoteName.E, mode.note6().getNoteName());
+        assertEquals(Note.NoteName.Gb, mode.note7().getNoteName());
+
+    }
+
+    @Test
+    public void testDMixolidianMode() {
+        Mode mode = new MixolydianMode(Note.NoteName.D);
+
+        assertEquals(Note.NoteName.D, mode.note1().getNoteName());
+        assertEquals(Note.NoteName.E, mode.note2().getNoteName());
+        assertEquals(Note.NoteName.Gb, mode.note3().getNoteName());
+        assertEquals(Note.NoteName.G, mode.note4().getNoteName());
+        assertEquals(Note.NoteName.A, mode.note5().getNoteName());
+        assertEquals(Note.NoteName.B, mode.note6().getNoteName());
+        assertEquals(Note.NoteName.C, mode.note7().getNoteName());
+
+    }
+
+    @Test
+    public void testDMixolidianContainsSameAsCIonian() {
+        Mode cIonian = new IonianMode(Note.NoteName.G);
+        Mode dMixolydian = new MixolydianMode(Note.NoteName.D);
+
+        assertTrue(cIonian.getAllNotesInScale().containsAll(dMixolydian.getAllNotesInScale()));
     }
 }
