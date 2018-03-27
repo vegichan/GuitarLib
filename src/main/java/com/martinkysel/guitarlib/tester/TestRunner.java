@@ -49,6 +49,8 @@ public class TestRunner {
     public static void main(String[] args) throws IOException {
         NamedQuestion[] questions = {
                 getDistanceQuestion(),
+                getDegreeNameFromRootQuestion(),
+                getDegreeDistanceFromRootQuestion(),
                 getNotesOnFretboardQuestion(),
                 getStringBaseTonesQuestion(),
                 getModeOrderQuestion(),
@@ -146,6 +148,16 @@ public class TestRunner {
     private static NamedQuestion getIdentifyModePatternQuestion() {
         return new NamedQuestion("Identify mode by pattern",
                 new IdentifyModeQuestion());
+    }
+
+    private static NamedQuestion getDegreeNameFromRootQuestion() {
+        return new NamedQuestion("Degree name from root",
+                new DegreeNameFromRoot(Note.getNote(Note.NoteName.G)));
+    }
+
+    private static NamedQuestion getDegreeDistanceFromRootQuestion() {
+        return new NamedQuestion("Degree distance from root",
+                new DegreeDistanceFromRoot());
     }
 
     private Question.QuestionVariant pickVariant(List<Question.QuestionVariant> variants) {
